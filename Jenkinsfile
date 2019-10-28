@@ -44,7 +44,7 @@ pipeline {
                         sh "docker restart user"
                         
                     } else {
-                        sh "docker run -d --name user --add-host user-db:${DB_NETWORK_IP} --network socks -p 8082:80 user"
+                        sh "docker run -d --name user --restart always --add-host user-db:${DB_NETWORK_IP} --network socks -p 8082:80 user"
                     }
                     //sh 'docker start catalogue' 
                 }
