@@ -28,7 +28,7 @@ pipeline {
        stage('Deploy') {
             environment {
                 DB_NETWORK_IP = sh(script: "cat /var/lib/jenkins/db_local_ip", , returnStdout: true).trim()
-                CHECK_CONTAINER = sh(script: "ssh -oStrictHostKeyChecking=no jenkins@app-server /opt/check-user.sh", , returnStdout: true).trim()
+                CHECK_CONTAINER = sh(script: "ssh -oStrictHostKeyChecking=no jenkins@app-server /tmp/check-user.sh", , returnStdout: true).trim()
                 DOCKER_HOST="ssh://jenkins@app-server"
             }
                 
